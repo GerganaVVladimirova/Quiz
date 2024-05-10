@@ -7,6 +7,6 @@ document.getElementById('uploadForm').addEventListener('submit', async function(
       method: 'POST',
       body: formData
   });
-  window.location.href = "https://quiz-gvv.netlify.app/quiz";
+  location.href = 'quiz.html';
  
 });
