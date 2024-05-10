@@ -2,7 +2,7 @@ const express = require("express");
 const multer = require("multer");
 const { promisify } = require("util");
 const app = express();
-const port = 3000;
+// const port = 3000;
 const serverless = require('serverless-http');
 const router = express.Router();
 
@@ -91,6 +91,6 @@ app.use('/.netlify/functions/server', router);
 module.exports.handler = serverless(app);
 
 // Start the server
-app.listen(port, () => {
-  console.log(`Server listening at http://localhost:${port}`);
-});
+// app.listen(port, () => {
+//   console.log(`Server listening at http://localhost:${port}`);
+// });
