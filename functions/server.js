@@ -12,7 +12,7 @@ const unlinkAsync = promisify(fs.unlink);
 
 
 // Serve static files from the "public" directory
-app.use(express.static("public"));
+app.use(express.static("dist"));
 
 let excelFilePath = '';
 let exam = 0;
