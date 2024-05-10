@@ -1,7 +1,10 @@
 [build]
 functions = "functions"
 
-[[redirects]]
+  [[redirects]]
   from = "/quiz"
   to = "/dist/quiz.html"
   status = 200
+  force = false
+ 
+  
