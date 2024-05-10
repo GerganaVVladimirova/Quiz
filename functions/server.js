@@ -2,7 +2,7 @@ const express = require("express");
 const multer = require("multer");
 const { promisify } = require("util");
 const app = express();
-// const port = 3000;
+const port = 3000;
 const serverless = require('serverless-http');
 const router = express.Router();
 
@@ -12,7 +12,7 @@ const unlinkAsync = promisify(fs.unlink);
 
 
 // Serve static files from the "public" directory
-app.use(express.static("dist"));
+app.use(express.static("../dist"));
 
 let excelFilePath = '';
 let exam = 0;
@@ -90,7 +90,7 @@ router.post("/delete", async(req,res)=>{
 app.use('/.netlify/functions/server', router);
 module.exports.handler = serverless(app);
 
-// Start the server
+
 // app.listen(port, () => {
 //   console.log(`Server listening at http://localhost:${port}`);
 // });
