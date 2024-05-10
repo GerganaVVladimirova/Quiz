@@ -3,5 +3,5 @@ functions = "functions"
 
 [[redirects]]
   from = "/quiz"
-  to = "/.netlify/dist/quiz.html"
+  to = "https://quiz-gvv.netlify.app/quiz"
   status = 200
