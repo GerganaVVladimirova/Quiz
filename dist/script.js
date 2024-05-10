@@ -7,6 +7,5 @@ document.getElementById('uploadForm').addEventListener('submit', async function(
       method: 'POST',
       body: formData
   });
-  location.href = 'quiz.html';
  
 });
