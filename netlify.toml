@@ -1,2 +1,7 @@
 [build]
 functions = "functions"
+
+[[redirects]]
+  from = "/quiz"
+  to = "/.netlify/dist/quiz.html"
+  status = 200
