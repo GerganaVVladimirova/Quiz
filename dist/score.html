@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Score</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="quiz-container">
+    <h1>Your Quiz Score</h1>
+    <p id="score"></p> <!-- This is where the score will be displayed -->
+    <button id="new">Start again</button>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const scoreElem = document.getElementById('score');
+      const quizScore = localStorage.getItem('quizScore');
+      const returnButton = document.getElementById('new');
+      returnButton.onclick = () => window.location.href = "index.html";
+      console.log(quizScore)
+
+      if (quizScore !== null) {
+        
+        let perc =(quizScore*100)/60;
+        scoreElem.innerText = `Your score is ${quizScore} out of 60.You have ${perc.toFixed(0)}%, you need 80% to pass`;
+            
+      } else {
+        scoreElem.textContent = 'No score available.';
+      }
+
+      // Clear localStorage after displaying the score
+      localStorage.removeItem('quizScore');
+    });
+  </script>
+</body>
+</html>
