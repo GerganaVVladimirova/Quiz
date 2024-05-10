@@ -69,7 +69,7 @@ router.post('/', upload, async (req, res) => {
 
   await unlinkAsync(req.file.path);
 
-  res.redirect('/quiz');
+  // res.redirect('/quiz');
 });
 
 router.get('/questions',(req,res)=>{

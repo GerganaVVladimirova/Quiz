@@ -1,10 +1,4 @@
 [build]
 functions = "functions"
 
-  [[redirects]]
-  from = "/quiz"
-  to = "https://quiz-gvv.netlify.app/quiz/:splat"
-  status = 200
-  force = false
- 
   
