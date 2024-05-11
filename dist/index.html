@@ -11,8 +11,9 @@
 
 <body>
     <div id="quiz-container">
+        
+    <form enctype="multipart/form-data" name="contact-form" action="/upload" method="post" className="w-full" data-netlify="true" >
         <input type="hidden" name="form-name" value="contactForm" />
-    <form action="/upload" method="POST" enctype="multipart/form-data">
         <input type="file" name="file" required id="file">
         <label for="exam">Choose a exam:</label>
         <select class="form-select" name="picker" aria-label="Default select example" id="kk">
