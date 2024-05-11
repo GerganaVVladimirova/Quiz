@@ -1,1 +1,1 @@
-/quiz /quiz
+/api/* https://quiz-gvv.netlify.app/:splat 200!
