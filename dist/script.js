@@ -6,21 +6,11 @@ document.getElementById('uploadForm').addEventListener('submit', async function(
   const response = await fetch('/upload', { // Send form data to server
       method: 'POST',
       body: formData,
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      // headers: { "Content-Type": "application/x-www-form-urlencoded" },
   });
-  window.location.href = "quiz.html";
-  // return redirect("/quiz");
+  
+ 
+    // window.location.href = "quiz.html";
+  
+ 
 });
-
-
-// export async function action({ request }) {
-//   const form = await request.formData();
-
-//   await fetch("/", {
-//     method: "POST",
-//     headers: { "Content-Type": "application/x-www-form-urlencoded" },
-//     body: form,
-//   });
-
-//   return redirect("/submitted");
-// }
