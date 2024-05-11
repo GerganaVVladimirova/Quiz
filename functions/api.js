@@ -30,7 +30,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage }).single("file");
 
-app.post('/upload',upload, async (req, res) => {
+router.post('/upload',upload, async (req, res) => {
  
   exam = req.body.picker;
   excelFilePath = req.file.path; // Save the path of the uploaded file
@@ -74,21 +74,21 @@ app.post('/upload',upload, async (req, res) => {
 
 });
 
-app.get('/questions',(req,res)=>{
+router.get('/questions',(req,res)=>{
   // console.log(questions)
   if(questions){
     res.json({questions});
   }
 });
 
-app.get('/info',(req,res)=>{
+router.get('/info',(req,res)=>{
   // console.log(questions)
   
     res.json({"info": "yes"});
   
 });
 
-app.post("/delete", async(req,res)=>{
+router.post("/delete", async(req,res)=>{
   if(questions){
     questions = [];
   } 
