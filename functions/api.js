@@ -79,6 +79,13 @@ router.get('/questions',(req,res)=>{
   }
 });
 
+router.get('/info',(req,res)=>{
+  // console.log(questions)
+  
+    res.json({"questions": "yes"});
+  
+});
+
 router.post("/delete", async(req,res)=>{
   if(questions){
     questions = [];

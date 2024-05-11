@@ -8,8 +8,8 @@ document.getElementById('uploadForm').addEventListener('submit', async function(
       body: formData,
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
   });
-  // window.location.href = "quiz.html";
-  return redirect("/quiz");
+  window.location.href = "quiz.html";
+  // return redirect("/quiz");
 });
 
 
