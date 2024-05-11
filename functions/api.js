@@ -87,7 +87,7 @@ router.post("/delete", async(req,res)=>{
 
 })
 
-app.use('/.netlify/functions/api', router);
+app.use('.netlify/functions/api', router);
 module.exports.handler = serverless(app);
 
 
