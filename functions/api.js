@@ -82,7 +82,7 @@ router.get('/questions',(req,res)=>{
 router.get('/info',(req,res)=>{
   // console.log(questions)
   
-    res.json({"questions": "yes"});
+    res.json({"info": "yes"});
   
 });
 
@@ -94,7 +94,7 @@ router.post("/delete", async(req,res)=>{
 
 })
 
-app.use('.netlify/functions/api', router);
+app.use('/.netlify/functions/api', router);
 module.exports.handler = serverless(app);
 
 
