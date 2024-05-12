@@ -1,5 +1,3 @@
-
-
 let shuffledQuestions = [];
 let currentQuestionIndex = 0;
 let score = 0;
@@ -12,12 +10,25 @@ function shuffleArray(array) {
   }
 }
 
+// Function to fetch questions from the server
+async function fetchQuestions() {
+  try {
+    const response = await fetch("/questions"); // endpoint
+    const data = await response.json();
+    return data.questions;
+  
+  } catch (error) {
+    console.error("Error fetching questions:", error);
+    return [];
+  }
+}
+
 // Function to initialize the quiz
- function initializeQuiz(arr) {
- 
-  if (arr.length > 0) {
+async function initializeQuiz() {
+  const questions = await fetchQuestions();
+  if (questions.length > 0) {
     // Make a copy of the questions array and shuffle it
-    shuffledQuestions = [...arr];
+    shuffledQuestions = [...questions];
 
     shuffleArray(shuffledQuestions);
     shuffledQuestions = shuffledQuestions.slice(0, 60);
@@ -50,6 +61,7 @@ function displayQuestion(question) {
   optionsElem.innerHTML = "";
   let sheffuledOptions = Array.from(question.options);
   shuffleArray(sheffuledOptions);
+  console.log(sheffuledOptions)
 
   sheffuledOptions.forEach((option) => {
     const input = document.createElement(question.multiple ? "input" : "input");
@@ -88,12 +100,15 @@ function checkAnswer(correctAnswers) {
 }
 
 function endQuiz() {
+  // Save score to localStorage for access on the score page
   localStorage.setItem("quizScore", score);
-  localStorage.removeItem("questions");
   // Redirect to the score page
   window.location.href = "score.html";
-  
+  handleFileDelete();
 }
+
+// Call initializeQuiz to start the quiz
+initializeQuiz();
 
 var timer;
 
@@ -114,20 +129,17 @@ function countDown(i, callback) {
 }
 
 window.onload = function () {
-  countDown(20, function () { //3600  
+  countDown(60, function () { //3600
+    handleFileDelete();
     endQuiz()
+
   });
-
-  const arrQ = localStorage.getItem('questions');
-  let resulrA = JSON.parse(arrQ)
-  if (resulrA !== null) {
-             
-  } else {
-    const questionElem = document.getElementById("question");
-    questionElem.textContent = 'No Q available.';
-  }
-
-  initializeQuiz(resulrA)
 
 }
 
+ async function handleFileDelete() {
+  shuffledQuestions=[];
+  const response = await fetch('/delete', { 
+    method: 'POST'
+});
+}
